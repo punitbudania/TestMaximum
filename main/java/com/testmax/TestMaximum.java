@@ -19,11 +19,8 @@ public class TestMaximum <E extends Comparable> {
         numbers.add(12);
         numbers.add(45);
         numbers.add(34);
-
-        findMax(numbers);
-        //System.out.println(findMax(numbers));
+        printMax(numbers);
     }
-
 
     public static <E extends Comparable> E findMax(List<E> list)
     {
@@ -36,5 +33,10 @@ public class TestMaximum <E extends Comparable> {
             }
         }
         return max;
+    }
+
+    public static <E extends Comparable> void printMax(List<E> list )
+    {
+        System.out.println("Maximum of " + list + " = " + findMax(list));
     }
 }
