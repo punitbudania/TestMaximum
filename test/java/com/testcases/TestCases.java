@@ -4,35 +4,40 @@ import com.testmax.TestMaximum;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class TestCases
+public class TestCases <T extends Comparable>
 {
-    Integer[] FirstTest = {6, 5, 2};
+    Integer a = 6;
+    Integer b = 5;
+    Integer c = 2;
+    private T x;
+    private T y;
+    private T z;
+
     @Test
     public void MaxatFirstPosition()
     {
-        TestMaximum FirstMax = new TestMaximum();
-        Integer result = FirstMax.findMax(FirstTest);
-        Assert.assertEquals(FirstTest[0], result);
+        TestMaximum FirstMax = new TestMaximum(x, y, z);
+        Integer result = FirstMax.findMax(a, b, c);
+        Assert.assertEquals(a, result);
     }
 
-    Integer[] SecondTest = {2, 6, 3};
     @Test
     public void MaxatSecondPosition()
     {
-        TestMaximum SecondMax = new TestMaximum();
-        Integer result = SecondMax.findMax(SecondTest);
-        Assert.assertEquals(SecondTest[1], result);
+        TestMaximum SecondMax = new TestMaximum(x, y, z);
+        Integer result = SecondMax.findMax(b, a, c);
+        Assert.assertEquals(a, result);
     }
 
-    Integer[] ThirdTest = {1, 0, 6};
     @Test
     public void MaxatThirdPosition()
     {
-        TestMaximum ThirdMax = new TestMaximum();
-        Integer result = ThirdMax.findMax(ThirdTest);
-        Assert.assertEquals(ThirdTest[2], result);
+        TestMaximum ThirdMax = new TestMaximum(x, y, z);
+        Integer result = ThirdMax.findMax(c, b, a);
+        Assert.assertEquals(a, result);
     }
 
+    /*
     Double[] DFirstTest = {8.1, 7.4, 3.4};
     @Test
     public void DMaxatFirstPosition()
@@ -59,4 +64,6 @@ public class TestCases
         Double result = DThirdMax.findMax(DThirdTest);
         Assert.assertEquals(DThirdTest[2], result);
     }
+
+     */
 }
