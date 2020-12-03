@@ -1,39 +1,39 @@
 package com.testmax;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TestMaximum <E extends Comparable> {
-    //static Integer[] numbers = {6, 7, 3};
-    //static Double[] floatnos = {4.6, 7.9, 9.5};
-    //static String[] fruits = {"Mango", "Pineapple", "Banana"};
 
-    E x;
-    E y;
-    E z;
+    List<E> inputlist = new ArrayList<E>();
 
-    public TestMaximum (E x, E y, E z)
+    public TestMaximum (List<E> inputlist)
     {
-        this.x = x;
-        this.y = y;
-        this.z = z;
+        this.inputlist = inputlist;
     }
 
     public static void main(String[] args)
     {
-        Integer xInt = 0;
-        Integer yInt = 4;
-        Integer zInt = 9;
-        System.out.println(findMax(xInt, yInt, zInt));
-        //System.out.println(findMax(floatnos));
-        //System.out.println(findMax(fruits));
+        List<Integer> numbers = new ArrayList<Integer>();
+        numbers.add(8);
+        numbers.add(12);
+        numbers.add(45);
+        numbers.add(34);
+
+        findMax(numbers);
+        //System.out.println(findMax(numbers));
     }
 
-    public static <E extends Comparable> E findMax(E x, E y, E z) {
-        E max = x;
 
-        if ((max.compareTo(y)) < 0) {
-            max = y;
-        }
-        if ((max.compareTo(z)) < 0) {
-            max = z;
+    public static <E extends Comparable> E findMax(List<E> list)
+    {
+        E max = list.get(0);
+        for(E i : list)
+        {
+            if(max.compareTo(i)<0)
+            {
+                max = i;
+            }
         }
         return max;
     }
